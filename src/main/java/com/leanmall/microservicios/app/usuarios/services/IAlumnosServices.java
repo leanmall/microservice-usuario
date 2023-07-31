@@ -1,12 +1,13 @@
 package com.leanmall.microservicios.app.usuarios.services;
 
 import com.leanmall.microservicios.app.usuarios.models.dto.AlumnosDTO;
+import com.leanmall.microservicios.app.usuarios.models.dto.AlumnosRecord;
 
 import java.util.List;
 
 public interface IAlumnosServices {
 
-    List<AlumnosDTO> findAll();
+    List<AlumnosRecord> findAll();
 
     AlumnosDTO create(AlumnosDTO alumnos);
 

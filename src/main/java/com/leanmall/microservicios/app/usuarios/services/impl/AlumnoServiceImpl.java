@@ -3,9 +3,9 @@ package com.leanmall.microservicios.app.usuarios.services.impl;
 import com.leanmall.microservicios.app.usuarios.models.converters.AlumnosConverter;
 import com.leanmall.microservicios.app.usuarios.models.dao.IAlumnosDao;
 import com.leanmall.microservicios.app.usuarios.models.dto.AlumnosDTO;
+import com.leanmall.microservicios.app.usuarios.models.dto.AlumnosRecord;
 import com.leanmall.microservicios.app.usuarios.models.entity.Alumnos;
 import com.leanmall.microservicios.app.usuarios.services.IAlumnosServices;
-import org.apache.commons.collections4.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,10 +25,10 @@ public class AlumnoServiceImpl implements IAlumnosServices {
 
     @Override
     @Transactional(readOnly = true)
-    public List<AlumnosDTO> findAll() {
-        List<AlumnosDTO> alumnosDTOList = new ArrayList<>();
-        for (Alumnos alumnos : IteratorUtils.toList(alumnosDao.findAll().iterator())){
-            AlumnosDTO alumnosDTO = alumnosConverter.toDTO(alumnos);
+    public List<AlumnosRecord> findAll() {
+        List<AlumnosRecord> alumnosDTOList = new ArrayList<>();
+        for (Alumnos alumnos : alumnosDao.findAll()){
+            AlumnosRecord alumnosDTO = alumnosConverter.toRecord(alumnos);
             alumnosDTOList.add(alumnosDTO);
         }
         return alumnosDTOList;

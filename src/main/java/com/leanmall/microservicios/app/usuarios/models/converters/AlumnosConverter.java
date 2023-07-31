@@ -1,6 +1,7 @@
 package com.leanmall.microservicios.app.usuarios.models.converters;
 
 import com.leanmall.microservicios.app.usuarios.models.dto.AlumnosDTO;
+import com.leanmall.microservicios.app.usuarios.models.dto.AlumnosRecord;
 import com.leanmall.microservicios.app.usuarios.models.entity.Alumnos;
 import org.springframework.stereotype.Component;
 
@@ -27,5 +28,11 @@ public class AlumnosConverter {
         alumnosDTO.setMaterias(alumnos.getMaterias());
         alumnosDTO.setCreateAt(alumnos.getCreateAt());
         return alumnosDTO;
+    }
+
+    public AlumnosRecord toRecord(Alumnos alumnos){
+        AlumnosRecord alumnosRecord = new AlumnosRecord(alumnos.getId(), alumnos.getNombre(),
+                alumnos.getApellido(), alumnos.getEmail(), alumnos.getMaterias(), alumnos.getCreateAt());
+        return alumnosRecord;
     }
 }

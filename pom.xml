@@ -14,7 +14,7 @@
 	<name>microservicios-usuarios</name>
 	<description>Practica de creacion de microservicios usuario</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
